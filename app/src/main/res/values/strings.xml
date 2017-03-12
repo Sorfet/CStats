@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CStats</string>
+    <string name="mainActivity_name">MainActivity</string>
 </resources>
