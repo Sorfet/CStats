@@ -1,5 +1,7 @@
 package com.cstats.cstats;
 
+import android.app.Application;
+
 /**
  * Created by Sasu on 12.3.2017.
  *
@@ -11,18 +13,27 @@ package com.cstats.cstats;
  *
  */
 
-public class Global {
+public class Global extends Application {
 
-    public int steamID;
+    public String steamID;
+
+    public String user;
 
 
 
+    public String getUser() {
+        return user;
+    }
 
-    public int getSteamID() {
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getSteamID() {
         return steamID;
     }
 
-    public void setSteamID(int steamID) {
+    public void setSteamID(String steamID) {
         this.steamID = steamID;
     }
 }

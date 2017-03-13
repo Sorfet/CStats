@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme" >
         <activity android:name=".Login" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+               <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -20,10 +20,13 @@
             android:label="@string/mainActivity_name" >
             <intent-filter>
                 <action android:name="com.cstats.cstats.Main" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
         </activity>
+
+
     </application>
 
 </manifest>

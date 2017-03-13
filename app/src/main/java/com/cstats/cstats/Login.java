@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
     private Button submitNappi;
     private ImageButton apuNappi;
     private String id;
-
+    private Global g;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,7 @@ public class Login extends AppCompatActivity {
         //piilotetaan menubar
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
 
 
 
@@ -81,7 +82,15 @@ public class Login extends AppCompatActivity {
                     id = idKentta.getText().toString();
 
 
+
                     System.out.println("Testitulostus ----- syötetty id: " + id);
+
+   //                 g = (Global)getApplication();
+ //                   g.setSteamID(id);
+
+                    System.out.println("GLOBAL OHITETTY OHJII");
+
+                    p.parseWeb(id);
 
                     //tää siirtää activityn toiseen
                     startActivity(new Intent("com.cstats.cstats.Main"));
@@ -90,7 +99,7 @@ public class Login extends AppCompatActivity {
 
                     System.out.println("Error");
                 }
-                p.parseWeb(id);
+
             }
         });
 
