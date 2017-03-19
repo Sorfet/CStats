@@ -6,13 +6,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.cstats.cstats.Global"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name="com.cstats.cstats.Global"
         android:theme="@style/AppTheme" >
-
 
         <activity android:name=".Login" >
             <intent-filter>
@@ -21,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Main"
             android:label="@string/mainActivity_name" >
@@ -29,7 +29,6 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
 
 
