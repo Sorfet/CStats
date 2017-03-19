@@ -19,6 +19,18 @@ public class Global extends Application {
 
     public String user;
 
+    public String jsontulos;
+
+
+    public String getJsontulos() {
+        return jsontulos;
+    }
+
+    public void setJsontulos(String jsontulos) {
+        this.jsontulos = jsontulos;
+    }
+
+
 
 
     public String getUser() {

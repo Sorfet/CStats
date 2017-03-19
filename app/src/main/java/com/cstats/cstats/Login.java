@@ -49,6 +49,8 @@ public class Login extends AppCompatActivity {
     private ImageButton apuNappi;
     private String id;
     private Global g;
+    private String tulos;
+    private StringBuffer buffer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,12 +87,27 @@ public class Login extends AppCompatActivity {
 
                     System.out.println("Testitulostus ----- syötetty id: " + id);
 
-   //                 g = (Global)getApplication();
- //                   g.setSteamID(id);
 
-                    System.out.println("GLOBAL OHITETTY OHJII");
 
-                    p.parseWeb(id);
+                    buffer =p.parseWeb(id);
+
+
+                    System.out.println("Login parserin jälkeen: global asetus:");
+                    try {
+
+                        String valitulos=buffer.toString();
+
+                        g = (Global) getApplication();
+                        g.setJsontulos(valitulos);
+
+
+
+                        System.out.println("Tulostus tulokselle global: \n" +g.getJsontulos());
+
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+
 
                     //tää siirtää activityn toiseen
                     startActivity(new Intent("com.cstats.cstats.Main"));
