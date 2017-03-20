@@ -27,12 +27,16 @@ public class Main extends AppCompatActivity {
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+
+        //alustetaan käyttöliittymän komponentit
         g = (Global)getApplication();
         KD = (TextView) findViewById(R.id.KDtextView);
         HS = (TextView) findViewById(R.id.HStextView);
         TP = (TextView) findViewById(R.id.TPtextView);
         MVP = (TextView) findViewById(R.id.MVPtextView);
 
+
+        //lasketaan main sivun arvot
         try {
         valiTapot = Double.parseDouble(g.getKills());
         valiKuolemat = Double.parseDouble(g.getDeaths());
@@ -56,6 +60,7 @@ public class Main extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //asetetaan lasketut arvot TextView kenttiin.
         try {
             KD.setText(finalKD);
             HS.setText(finalHS);

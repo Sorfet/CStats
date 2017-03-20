@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0d141c"
+    android:background="#161a22"
     tools:context="com.cstats.cstats.Login">
 
     <LinearLayout
         android:layout_width="344dp"
         android:layout_height="495dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
         <LinearLayout
@@ -26,37 +26,17 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:gravity="right|center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
                     android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/loginLogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_launcher" />
-
-                    <TextView
-                        android:id="@+id/loginOtsikko"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif"
-                        android:gravity="center"
-                        android:text="CStats"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30sp"
-                        android:typeface="normal" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:orientation="horizontal">
 
                     <ImageButton
@@ -65,8 +45,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="#00000000"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
                         app:srcCompat="@android:drawable/stat_sys_warning" />
                 </LinearLayout>
 
@@ -102,8 +80,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="#212a31"
                 android:orientation="vertical">
