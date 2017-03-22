@@ -2,6 +2,7 @@ package com.cstats.cstats;
 
 import android.icu.text.DecimalFormat;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
@@ -25,15 +26,17 @@ public class Main extends AppCompatActivity {
     private double valiKD, valiTapot, valiKuolemat, valiHS, HSlasku, valiTP, TPlasku;
     private String finalKD, finalHS, finalTP;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+        /*
         //piilotetaan menubar
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
+        */
 
         //alustetaan käyttöliittymän komponentit
         g = (Global)getApplication();

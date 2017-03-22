@@ -21,9 +21,11 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen_activity);
 
+        /*
         //piilotetaan menubar
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        */
 
 
         Thread uusiSaie = new Thread() {

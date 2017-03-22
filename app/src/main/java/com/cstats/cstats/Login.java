@@ -49,6 +49,9 @@ import java.lang.*;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,9 +77,11 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        /*
         //piilotetaan menubar
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        */
 
         //Määritetään id input kenttä
         idKentta = (EditText) findViewById(R.id.loginIdKentta);
@@ -178,12 +183,14 @@ public class Login extends AppCompatActivity {
             JSONObject finalObject5 = parentArray.getJSONObject(25);
             headShot = finalObject5.getString("value");
 
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         try {
             g = (Global)getApplication();
+
             g.setKills(totalKills);
             g.setDeaths(totalDeaths);
             g.setTimePlayed(timePlayed);
@@ -195,6 +202,18 @@ public class Login extends AppCompatActivity {
             System.out.println("Tulostus pelatulle ajalle: \n" +g.getTimePlayed());
             System.out.println("Tulostus MVP tähdille: \n" +g.getMVP());
             System.out.println("Tulostus headshottien lkm: \n" +g.getHeadShot());
+
+
+            /*
+            //Kirjoita databaseen
+            // Write a message to the database
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("message");
+
+            myRef.setValue("Hello, World!");
+
+*/
+
 
         }catch(Exception e){
             e.printStackTrace();
