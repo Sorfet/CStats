@@ -1,6 +1,7 @@
 package com.sorfet.cstats;
 
 import android.app.Application;
+import android.support.v4.app.Fragment;
 
 /**
  * Created by Sasu on 12.3.2017.
@@ -17,7 +18,7 @@ public class Global extends Application {
     public String steamID;
     public String user;
     public String jsontulos;
-    public String kills = " ", deaths = " ", MVP = " ", timePlayed = " ", headShot = " ";
+    public static String kills = " ", deaths = " ", MVP = " ", timePlayed = " ", headShot = " ";
 
     public String getHeadShot() {
         return headShot;
