@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\Sasu\\Desktop\\Android\\CStats\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_appbar_state_list_animator.xml",
+        "source": "C:\\Android\\.android\\build-cache\\bb42ff12d445fa08fb97db6e1e72f81b56956a94\\output\\res\\anim-v21\\design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sasu\\Desktop\\Android\\CStats\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Android\\.android\\build-cache\\bb42ff12d445fa08fb97db6e1e72f81b56956a94\\output\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sasu\\Desktop\\Android\\CStats\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Android\\.android\\build-cache\\bb42ff12d445fa08fb97db6e1e72f81b56956a94\\output\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
+    }
+]
