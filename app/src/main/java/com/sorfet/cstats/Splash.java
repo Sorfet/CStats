@@ -28,6 +28,7 @@ public class Splash extends AppCompatActivity {
         */
 
 
+
         Thread uusiSaie = new Thread() {
 
             @Override

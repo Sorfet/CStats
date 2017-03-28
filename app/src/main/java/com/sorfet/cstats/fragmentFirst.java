@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * Created by Jope on 26.3.2017.
  */
@@ -19,6 +22,8 @@ public class fragmentFirst extends Fragment{
     private int kdRatio;
     private double valiKD, valiTapot, valiKuolemat, valiHS, HSlasku, valiTP, TPlasku;
     private String finalKD, finalHS, finalTP;
+    private FirebaseDatabase database;
+    private DatabaseReference databaseRef;
 
 
     @Override
@@ -27,6 +32,38 @@ public class fragmentFirst extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         // TextView textView = (TextView) rootView.findViewById(R.id.section_label);
         // textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+
+        //Firebase  - kirjoita databaseen:
+        database = FirebaseDatabase.getInstance();
+        databaseRef = database.getReference("message");
+        databaseRef.setValue("Hello World!");
+
+
+
+        /* FIREBASE lue databasesta TODO
+
+        // Read from the database
+myRef.addValueEventListener(new ValueEventListener() {
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        // This method is called once with the initial value and again
+        // whenever data at this location is updated.
+        String value = dataSnapshot.getValue(String.class);
+        Log.d(TAG, "Value is: " + value);
+    }
+
+    @Override
+    public void onCancelled(DatabaseError error) {
+        // Failed to read value
+        Log.w(TAG, "Failed to read value.", error.toException());
+    }
+});
+
+
+
+         */
+
 
         //alustetaan käyttöliittymän komponentit
         //((MyActivity)getActivity()).getX()
