@@ -15,7 +15,7 @@ import android.support.v4.app.Fragment;
 
 public class Global extends Application {
 
-    public String steamID;
+    public static String steamID;
     public String user;
     public String jsontulos;
     public static String kills = " ", deaths = " ", MVP = " ", timePlayed = " ", headShot = " ";

@@ -188,7 +188,6 @@ public class Login extends AppCompatActivity {
 
         try {
             g = (Global)getApplication();
-
             g.setKills(totalKills);
             g.setDeaths(totalDeaths);
             g.setTimePlayed(timePlayed);
@@ -242,7 +241,9 @@ public class Login extends AppCompatActivity {
         System.out.println("Parseri starts ------------");
 
         //kovakoodattu id:
-        id = "76561197982347980";
+        id = "76561197990716071";
+        g = (Global)getApplication();
+        g.setSteamID(id);
 
         try {
             url = new URL(url1 + id);
@@ -288,7 +289,7 @@ public class Login extends AppCompatActivity {
         System.out.println("Parseri starts ------------");
 
         //kovakoodattu id:
-        id = "76561197990716071";
+        id = "76561197982347980";
 
 
         try {

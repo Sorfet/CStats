@@ -10,20 +10,21 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 /**
  * Created by Jope on 26.3.2017.
  */
 
-public class fragmentFirst extends Fragment{
+public class FragmentFirst extends Fragment{
 
 
     private Global g;
     private TextView KD, HS, TP, MVP;
-    private int kdRatio;
     private double valiKD, valiTapot, valiKuolemat, valiHS, HSlasku, valiTP, TPlasku;
     private String finalKD, finalHS, finalTP;
     private FirebaseDatabase database;
-    private DatabaseReference databaseRef;
+    private DatabaseReference databaseRef, inception;
 
 
     @Override
@@ -34,17 +35,10 @@ public class fragmentFirst extends Fragment{
         // textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
 
 
-        //Firebase  - kirjoita databaseen:
-        database = FirebaseDatabase.getInstance();
-        databaseRef = database.getReference("message");
-        databaseRef.setValue("Hello World!");
-
-
-
-        /* FIREBASE lue databasesta TODO
+        // FIREBASE lue databasesta TODO
 
         // Read from the database
-myRef.addValueEventListener(new ValueEventListener() {
+   /* databaseRef.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
         // This method is called once with the initial value and again
@@ -58,11 +52,7 @@ myRef.addValueEventListener(new ValueEventListener() {
         // Failed to read value
         Log.w(TAG, "Failed to read value.", error.toException());
     }
-});
-
-
-
-         */
+});*/
 
 
         //alustetaan käyttöliittymän komponentit
@@ -73,6 +63,7 @@ myRef.addValueEventListener(new ValueEventListener() {
         HS = (TextView) rootView.findViewById(R.id.HStextView);
         TP = (TextView) rootView.findViewById(R.id.TPtextView);
         MVP = (TextView) rootView.findViewById(R.id.MVPtextView);
+
 
 
         //lasketaan main sivun arvot
@@ -97,7 +88,32 @@ myRef.addValueEventListener(new ValueEventListener() {
             TPlasku = (valiTP/60)/60;
             finalTP = String.format("%.0f", TPlasku);
 
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+
+            int mYear = calendar.get(Calendar.YEAR);
+            int mMonth = calendar.get(Calendar.MONTH);
+            int mDay = calendar.get(Calendar.DAY_OF_MONTH);
+
+            String stringYear = String.valueOf(mYear);
+            String stringMonth = String.valueOf(mMonth);
+            String stringDay = String.valueOf(mDay);
+
+            String pvm = stringYear.concat(stringMonth.concat(stringDay));
+
+            //String pvm = (String.valueOf(mYear) + String.format("%1$02d",String.valueOf(mMonth)) + String.format("%1$02d",String.valueOf(mDay));
+            //String pvm = (String.valueOf(mYear) + String.format("%1$02d %2$02d", mMonth, mDay));
+
+            //Firebase  - kirjoita databaseen:
+            //Hieno ratkaisu pitkän päänraapimisen päätteeksi
+            // String strLong = Long.toString(System.currentTimeMillis());
+            KdRatio kdLuku = new KdRatio(System.currentTimeMillis(), finalKD);
+            databaseRef = FirebaseDatabase.getInstance().getReference();
+            databaseRef.child(Global.steamID).child(pvm).setValue(kdLuku);
+
         }
+
         catch (Exception e){
             e.printStackTrace();
         }
@@ -112,6 +128,7 @@ myRef.addValueEventListener(new ValueEventListener() {
         catch(Exception e){
             e.printStackTrace();
         }
+
         return rootView;
     }
 
