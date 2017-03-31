@@ -201,15 +201,7 @@ public class Login extends AppCompatActivity {
             System.out.println("Tulostus headshottien lkm: \n" +g.getHeadShot());
 
 
-            /*
-            //Kirjoita databaseen
-            // Write a message to the database
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("message");
 
-            myRef.setValue("Hello, World!");
-
-*/
 
 
         }catch(Exception e){
@@ -278,6 +270,9 @@ public class Login extends AppCompatActivity {
         }
         return buffer;
     }
+
+
+    //HUOM TÄMÄ PARSEWEB EI KÄYTÖSSÄ
     public StringBuffer parseWeb(String id) {
 
         //Haetaan ensin APIsta haluttu JSON kokonaisena
