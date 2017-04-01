@@ -37,15 +37,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FragmentSecond extends Fragment{
 
 
     private DatabaseReference databaseRef;
     private FirebaseDatabase database;
-    private JSONObject obj;
+    private JSONObject obj,obj2;
     private List<String> list;
 
+    private KdRatio kdRatio;
     private JSONObject json;
     private String date;
 
@@ -82,39 +85,59 @@ public class FragmentSecond extends Fragment{
 
                 try {
 
-                    //TODO
+                    //TODO TODO TODO iha fffffffidun TODOOOOOOOO
                     obj = new JSONObject((Map)snap.getValue());
 
                     System.out.println("UUSI JSON: "+obj.toString());
 
-                   // obj = new JSONObject("{"steamuser":[".concat(snap.getValue().toString().concat("]}")));
+                    //UUSI JSON: {"2017231":{"time":1490991604850,"kdRatio":"0,87"},"2017230":{"time":1490897616041,"kdRatio":"0.87"},"201731":{"time":1491043727441,"kdRatio":"0.87"}}
 
-                    /*
-                    list = new ArrayList<String>();
-                    JSONArray array = obj.getJSONArray(Global.steamID);
-                    for (int i = 0; i < array.length(); i++) {
-                        list.add(array.getJSONObject(i).getString("2017231"));
-                    }
-                    */
+                    String tulos="";
+                    tulos=obj.getString("2017230");
+
+
+                    String objektiString=obj.toString();
+
+
+                    //ei toimi
+                        if (objektiString.matches("\\d{1,8}")) {
+                            System.out.println("Found good SSN: " + objektiString.matches("\\d{1,8}"));
+                        }
+
+                    //false
+                    System.out.println(objektiString.matches("\\d{1,8}"));
+
+
+
+                    System.out.println("TULOS JEE: "+tulos);
+                    //TULOS JEE: {"time":1490897616041,"kdRatio":"0.87"}
+
+                    JSONObject tulos2object = new JSONObject("{ date:[".concat(tulos).concat("]}"));
+
+
+
+                    JSONArray jArray = tulos2object.getJSONArray("date");
+
+
+
+                    //arrayn sisältä ohjekti järjestysnumero 0 (Eka ja tässä esim ainut)
+                    JSONObject finalObject = jArray.getJSONObject(0);
+
+                    //poimitaan haluttu tieto kyseisestä objektista muuttujaan
+                    String time1 = finalObject.getString("time");
+
+                    //poimitaan toinen tieto kyseisestä objektista muuttujaan
+                    String kdrat = finalObject.getString("kdRatio");
+
+                    //testitulostus
+                    System.out.println(time1 +" "+ kdrat);
+
+
+
 
                 }catch (Exception jee){
                     jee.printStackTrace();
                 }
-
-                /*
-                int i=0;
-                String mothafucka="";
-
-                while(i < list.size()){
-
-                   mothafucka=list.get(i);
-                    i++;
-
-                    System.out.println(mothafucka);
-                }
-                */
-
-
 
 
 
@@ -125,33 +148,6 @@ public class FragmentSecond extends Fragment{
             }
         });
 
-
-/*
-
-        String finalJson = buffer.toString();
-
-        JSONObject parentObject = null;
-        try {
-            parentObject = new JSONObject(finalJson);
-
-
-
-            //eka on objekti
-            JSONObject alkuObject = parentObject.getJSONObject("response");
-
-            //Haetaan Array
-            JSONArray parentArray = alkuObject.getJSONArray("players");
-
-            //arrayn sisältä ohjekti järjestysnumero 0 (Eka ja tässä esim ainut)
-            JSONObject finalObject = parentArray.getJSONObject(0);
-
-            //poimitaan haluttu tieto kyseisestä objektista muuttujaan
-            String pelaajaNimi = finalObject.getString("personaname");
-
-            //poimitaan toinen tieto kyseisestä objektista muuttujaan
-            int logoffTime = finalObject.getInt("lastlogoff");
-
-            */
 
 
 
